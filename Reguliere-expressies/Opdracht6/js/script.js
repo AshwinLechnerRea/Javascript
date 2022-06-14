@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    let phonePattern = /^(06|06[\s]|06-|\+31[\s]6[\s])[0-9]{8}$/;
-    let birthdayPattern = /^([\d]{1,2})(-|[\s])([a-z]|[0-9]{2,})/;
-    let streetPattern = /^([a-z]*)([\s]+)([0-9]{1,3})(((-|[\s])?)([a-z]?))$/i;
-    let urlPattern = /^(http)s?:\/\//i;
-    let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/;
+    const phonePattern = /^(06|06[\s]|06-|\+31[\s]6[\s])[0-9]{8}$/;
+    const birthdayPattern = /^([\d]{1,2})(-|[\s])([a-z]|[0-9]{2,})/;
+    const streetPattern = /^([a-z]*)([\s]+)([0-9]{1,3})(((-|[\s])?)([a-z]?))$/i;
+    const urlPattern = /^(http)s?:\/\//i;
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/;
 
     $("#submit-number").click(function (e) {
         e.preventDefault();

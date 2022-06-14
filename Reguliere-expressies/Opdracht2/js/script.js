@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let pattern = /^(06|\+31[\s]6[\s])(([\s]|-)?)[0-9]{8}$/;
+    const pattern = /^(06|\+31[\s]6[\s])(([\s]|-)?)[0-9]{8}$/;
 
     $("#submit-number").click(function (e) {
         e.preventDefault();
