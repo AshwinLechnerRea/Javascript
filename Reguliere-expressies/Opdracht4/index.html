@@ -14,9 +14,21 @@
 
 <body>
     <form action="">
+        <label for="phone-number">Phone number</label>
         <input type="text" name="phone-number" id="phone-number"><br>
+        <div class="phone-error error" hidden>Invalid phone number!!</div>
+        <label for="birthday">Birthday</label>
         <input type="text" name="birthday" id="birthday"><br>
-        <div class="phone-error" hidden>Invalid phone number!</div>
+        <div class="birthday-error error" hidden>Invalid birthday!!</div>
+        <label for="street">Street name</label>
+        <input type="text" name="street" id="street"><br>
+        <div class="street-error error" hidden>Invalid street!!</div>
+        <label for="url">Website url</label>
+        <input type="text" name="url" id="url"><br>
+        <div class="url-error error" hidden>Invalid URL!!</div>
+        <label for="password">Password</label>
+        <input type="text" name="password" id="password"><br>
+        <div class="password-error error" hidden>Invalid password!!</div>
         <input type="submit" name="submit" id="submit-number" value="Submit">
     </form>
 </body>
