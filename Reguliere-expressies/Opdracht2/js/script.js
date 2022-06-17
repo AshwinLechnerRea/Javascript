@@ -7,9 +7,8 @@ $(document).ready(function () {
         if (pattern.test(phoneNumber) == false) {
             $(".error").show();
             console.warn("Invalid phone number!");
-        }
-        if (pattern.test(phoneNumber) == true) {
-            console.log("hi");
+        } else {
+            console.log("Correct syntex");
         }
     })
 });
