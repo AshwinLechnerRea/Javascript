@@ -14,42 +14,42 @@ $(document).ready(function () {
         let password = $("#password").val();
         try {
             if (phonePattern.test(phoneNumber) == false) {
-                $(".phone-error").show();
                 throw "Invalid phone number!";
             }
         } catch (err) {
+            $(".phone-error").show();
             console.warn(err);
         }
         try {
             if (birthdayPattern.test(birthday) == false) {
-                $(".birthday-error").show();
                 throw "Invalid birthday!";
             }
         } catch (err) {
+            $(".birthday-error").show();
             console.warn(err);
         }
         try {
             if (streetPattern.test(street) == false) {
-                $(".street-error").show();
                 throw "Invalid street!";
             }
         } catch (err) {
+            $(".street-error").show();
             console.warn(err);
         }
         try {
             if (urlPattern.test(url) == false) {
-                $(".url-error").show();
                 throw "Invalid street!";
             }
         } catch (err) {
+            $(".url-error").show();
             console.warn(err);
         }
         try {
             if (passwordPattern.test(password) == false) {
-                $(".password-error").show();
                 throw "Invalid password!";
             }
         } catch (err) {
+            $(".password-error").show();
             console.warn(err);
         }
     })
