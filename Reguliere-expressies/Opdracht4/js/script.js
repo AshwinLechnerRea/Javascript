@@ -1,7 +1,7 @@
 $(document).ready(function () {
     const phonePattern = /^(06|06[\s]|06-|\+31[\s]6[\s])[0-9]{8}$/;
-    const birthdayPattern = /^([\d]{1,2})(-|[\s])([a-z]|[0-9]{2,})/;
-    const streetPattern = /^([a-z]*)([\s]+)([0-9]{1,3})(((-|[\s])?)([a-z]?))$/i;
+    const birthdayPattern = /^([\d]{1,2})(-)([a-z]|[0-9]{2,})/;
+    const streetPattern = /^([a-z]*)([\s]+)([0-9]{1,3})(((-)?)([a-z]?))$/i;
     const urlPattern = /^(http)s?:\/\//i;
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/;
 
@@ -12,6 +12,7 @@ $(document).ready(function () {
         let street = $("#street").val();
         let url = $("#url").val();
         let password = $("#password").val();
+        $(".error").hide();
         if (phonePattern.test(phoneNumber) == false) {
             $(".phone-error").show();
             console.warn("Invalid phone number!");
@@ -26,7 +27,7 @@ $(document).ready(function () {
         }
         if (urlPattern.test(url) == false) {
             $(".url-error").show();
-            console.warn("Invalid street!");
+            console.warn("Invalid URL!!");
         }
         if (passwordPattern.test(password) == false) {
             $(".password-error").show();
