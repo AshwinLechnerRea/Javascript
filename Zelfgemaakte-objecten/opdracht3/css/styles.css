@@ -1,0 +1,14 @@
+article {
+    max-width: 300px;
+    border: 1px solid black;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+p {
+    flex: 1 1;
+    width: 150px;
+}

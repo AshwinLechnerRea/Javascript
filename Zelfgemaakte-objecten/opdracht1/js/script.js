@@ -30,7 +30,7 @@ $(document).ready(function () {
             alert("Auto remt af...");
         },
         functies: [
-
+            motorStarten, accelereren
         ]
     }
     console.log(audi);
