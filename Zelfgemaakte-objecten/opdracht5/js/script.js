@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    //Exception handling niet gelukt. property update neit bij foute input,maar laat geen error zien.
     let currentTime = new Date();
     let currentYear = currentTime.getFullYear();
     let fuelPattern = /^(benzine|diesel)$/i
@@ -38,6 +37,8 @@ $(document).ready(function () {
             try {
                 if (typeof naam === "string") {
                     this._naam = naam;
+                } else {
+                    throw "naam must be a string!"
                 }
             } catch (error) {
                 console.log(error);
@@ -45,8 +46,11 @@ $(document).ready(function () {
         },
         set bouwjaar(bouwjaar) {
             try {
-                if (bouwjaar > 2007 && bouwjaar < currentYear)
+                if (bouwjaar > 2007 && bouwjaar < currentYear) {
                     this._bouwjaar = bouwjaar;
+                } else {
+                    throw "bouwjaar must be between 2007 and now!"
+                }
             } catch (error) {
                 console.error(error);
             }
@@ -55,6 +59,8 @@ $(document).ready(function () {
             try {
                 if (Number.isInteger(kmStand)) {
                     this._kmStand = kmStand;
+                } else {
+                    throw "kmStand must by an int!"
                 }
             } catch (error) {
                 console.log(error);
@@ -64,6 +70,8 @@ $(document).ready(function () {
             try {
                 if (labelPattern.test(energielabel)) {
                     this._energielabel = energielabel;
+                } else {
+                    throw "Invalid energielabel";
                 }
             } catch (error) {
                 console.log(error);
@@ -73,6 +81,8 @@ $(document).ready(function () {
             try {
                 if (fuelPattern.test(brandstof)) {
                     this._brandstof = brandstof;
+                } else {
+                    throw "Invalid brandstof type!"
                 }
             } catch (error) {
                 this._brandstof = error;
@@ -80,11 +90,11 @@ $(document).ready(function () {
         },
         set prijs(prijs) {
             try {
-                // Deze check via Google gevonden
-                if (typeof prijs === 'number' &&
-                    !Number.isNaN(prijs) &&
-                    !Number.isInteger(prijs))
+                if (typeof prijs === 'number') {
                     this._prijs = prijs;
+                } else {
+                    throw "prijs must be a number!";
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -93,6 +103,8 @@ $(document).ready(function () {
             try {
                 if (typeof garantie === "boolean") {
                     this._garantie = garantie;
+                } else {
+                    throw "garantie must be a boolean!"
                 }
             } catch (error) {
                 console.log(error);
@@ -121,8 +133,6 @@ $(document).ready(function () {
         }
     }
 
-    audi.garantie = false;
-    console.log(audi.garantie);
     let head = `<title>${audi.naam}</title>`
     let html = `    <article>
         <h3>${audi.naam}</h3>
