@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // Opdracht 1.5 niet gelukt. Graag meer uitleg over wat ik precies moet doen.
     const audi = {
         naam: "Audi A5 2.0",
         bouwjaar: 2009,
@@ -29,9 +30,7 @@ $(document).ready(function () {
         remmen: function () {
             alert("Auto remt af...");
         },
-        functies: [
-            motorStarten, accelereren
-        ]
+
     }
     console.log(audi);
 

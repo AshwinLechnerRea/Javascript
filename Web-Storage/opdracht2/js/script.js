@@ -1,11 +1,10 @@
-let timeNow = new Date().getTime();
 let startTime;
 
-
 if (sessionStorage.getItem("startTime") !== null) {
-    startTime = localStorage.getItem("startTime");
+    startTime = sessionStorage.getItem("startTime");
 } else {
-    sessionStorage.setItem("startTime", timeNow);
+    startTime = new Date().getTime();
+    sessionStorage.setItem("startTime", startTime);
 }
 setInterval(function () {
     let currentTime = new Date().getTime();

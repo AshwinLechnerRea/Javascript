@@ -1,11 +1,16 @@
 $(document).ready(function () {
+    //Exception handling niet gelukt. property update neit bij foute input,maar laat geen error zien.
+    let currentTime = new Date();
+    let currentYear = currentTime.getFullYear();
+    let fuelPattern = /^(benzine|diesel)$/i
+    let labelPattern = /^[a-g]$/i
     let audi = {
         _naam: "Audi A5 2.0",
-        _bouwjaar: 2009,
+        _bouwjaar: 2008,
         _kmStand: 165000,
         _energielabel: "A",
         _brandstof: "benzine",
-        _prijs: "€12.750,00",
+        _prijs: 12750.00,
         _garantie: "nee",
         opties: [
             "Cruise Control",
@@ -30,25 +35,68 @@ $(document).ready(function () {
             alert("Auto remt af...");
         },
         set naam(naam) {
-            this._naam = naam;
+            try {
+                if (typeof naam === "string") {
+                    this._naam = naam;
+                }
+            } catch (error) {
+                console.log(error);
+            }
         },
         set bouwjaar(bouwjaar) {
-            this._bouwjaar = bouwjaar;
+            try {
+                if (bouwjaar > 2007 && bouwjaar < currentYear)
+                    this._bouwjaar = bouwjaar;
+            } catch (error) {
+                console.error(error);
+            }
         },
         set kmStand(kmStand) {
-            this._kmStand = kmStand;
+            try {
+                if (Number.isInteger(kmStand)) {
+                    this._kmStand = kmStand;
+                }
+            } catch (error) {
+                console.log(error);
+            }
         },
         set energielabel(energielabel) {
-            this._energielabel = energielabel;
+            try {
+                if (labelPattern.test(energielabel)) {
+                    this._energielabel = energielabel;
+                }
+            } catch (error) {
+                console.log(error);
+            }
         },
         set brandstof(brandstof) {
-            this._brandstof = brandstof;
+            try {
+                if (fuelPattern.test(brandstof)) {
+                    this._brandstof = brandstof;
+                }
+            } catch (error) {
+                this._brandstof = error;
+            }
         },
         set prijs(prijs) {
-            this._prijs = prijs;
+            try {
+                // Deze check via Google gevonden
+                if (typeof prijs === 'number' &&
+                    !Number.isNaN(prijs) &&
+                    !Number.isInteger(prijs))
+                    this._prijs = prijs;
+            } catch (error) {
+                console.log(error);
+            }
         },
         set garantie(garantie) {
-            this._garantie = garantie;
+            try {
+                if (typeof garantie === "boolean") {
+                    this._garantie = garantie;
+                }
+            } catch (error) {
+                console.log(error);
+            }
         },
         get naam() {
             return this._naam;
@@ -60,21 +108,21 @@ $(document).ready(function () {
             return "Km stand: " + this._kmStand;
         },
         get energielabel() {
-            return "Energielabel: " + this._energielabel;
+            return "Energielabel: " + this._energielabel.toLocaleUpperCase();
         },
         get brandstof() {
-            return "Brandstof: " + this._brandstof;
+            return "Brandstof: " + this._brandstof.toLowerCase();
         },
         get prijs() {
-            return "Prijs: " + this._prijs;
+            return "Prijs: €" + this._prijs;
         },
         get garantie() {
             return "Garantie: " + this._garantie;
         }
     }
-    console.log(audi);
-    audi.prijs = "€ 11.500,00";
-    console.log(audi.prijs);
+
+    audi.garantie = false;
+    console.log(audi.garantie);
     let head = `<title>${audi.naam}</title>`
     let html = `    <article>
         <h3>${audi.naam}</h3>
@@ -93,4 +141,5 @@ $(document).ready(function () {
     </article>`;
     $("head").append(head);
     $("body").append(html);
+    console.log(audi);
 });
