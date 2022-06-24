@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //Net als bij opdracht 5 problemen met Exception handling
+    //Problemen met error handling. Werkt niet bij goede nieuwe data type (RangeError: Maximum call stack size exceeded)
     function Game(name, releaseDate, platform, developer) {
         this.name = name;
         this.releaseDate = releaseDate;
@@ -14,26 +14,29 @@ $(document).ready(function () {
                 try {
                     if (typeof name === "string") {
                         this.name = name;
+                    } else {
+                        throw "name must be a string!"
                     }
                 } catch (error) {
                     console.log(error);
                 }
-                t
             },
+
         });
         Object.defineProperty(this, "releaseDate", {
             get: function () {
                 return `<strong>${releaseDate}</strong>`;
             },
-            set: function (releaseDate) {
+            set: function (release) {
                 try {
-                    if (Number.isInteger(releaseDate)) {
-                        this.releaseDate = releaseDate;
+                    if (Number.isInteger(release)) {
+                        this.releaseDate = release;
+                    } else {
+                        throw "releaseDate must be an int!"
                     }
                 } catch (error) {
-                    this.releaseDate = error;
+                    console.log(error);
                 }
-
             },
         });
         Object.defineProperty(this, "platform", {
@@ -41,16 +44,34 @@ $(document).ready(function () {
                 return `<em>${platform}</em>`;
             },
             set: function (platform) {
-                this.platform = platform;
+                try {
+                    if (typeof platform === "string") {
+                        this.platform = platform;
+                    } else {
+                        throw "platform must be a string!"
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
             },
+
         });
         Object.defineProperty(this, "developer", {
             get: function () {
                 return `<em>${developer}</em>`;
             },
             set: function (developer) {
-                this.developer = developer;
+                try {
+                    if (typeof developer === "string") {
+                        this.developer = developer;
+                    } else {
+                        throw "developer must be a string!"
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
             },
+
         });
         Object.defineProperty(this, "roll", {
             value: function (number) {
@@ -59,11 +80,12 @@ $(document).ready(function () {
         })
     }
 
-    let worldOfWarcraft = new Game("World of Warcraft", "hi", "pc", "Blizzard Entertainment");
+    let worldOfWarcraft = new Game("World of Warcraft", 2004, "pc", "Blizzard Entertainment");
     let marioKart = new Game("Mario Kart 8", 2014, "Nintendo Switch, Wii U", "Nintendo");
     let eldenRing = new Game("Elden Ring", 2022, "PlayStation 4, Project Scarlett, Xbox One, PlayStation 5, Microsoft Windows ", "From Software");
 
 
+    worldOfWarcraft.releaseDate = "sa";
     console.log(worldOfWarcraft.roll(8));
 
     function makeList(game) {
