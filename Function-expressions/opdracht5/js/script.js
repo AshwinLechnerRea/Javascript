@@ -33,15 +33,14 @@ $(document).ready(function () {
         return x / 5;
     })
     //Gevonden op Google, snap alleen ht "-Infinity" gedeelte neit echt
-    let maxThree = dividedByThree.reduce(function (a, b) {
-        return Math.max(a, b);
-    }, -Infinity);
-    let maxFour = dividedByFour.reduce(function (a, b) {
-        return Math.max(a, b);
-    }, -Infinity);
-    let maxFive = dividedByFive.reduce(function (a, b) {
-        return Math.max(a, b);
-    }, -Infinity);
+    function getHighestValue(array) {
+        return array.reduce(function (a, b) {
+            return Math.max(a, b);
+        }, -Infinity);
+
+    }
+
+
 
     console.log(evenAdded);
     console.log(productAll);
@@ -52,7 +51,7 @@ $(document).ready(function () {
     console.log(dividedByThree);
     console.log(dividedByFour);
     console.log(dividedByFive);
-    console.log(maxThree);
-    console.log(maxFour);
-    console.log(maxFive);
+    console.log(getHighestValue(dividebleByThree));
+    console.log(getHighestValue(dividebleByFour));
+    console.log(getHighestValue(dividebleByFive));
 });
