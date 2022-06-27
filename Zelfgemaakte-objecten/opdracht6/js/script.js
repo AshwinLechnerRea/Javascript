@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    //Problemen met error handling. Werkt niet bij goede nieuwe data type (RangeError: Maximum call stack size exceeded)
+
     function Game(name, releaseDate, platform, developer) {
         this.name = name;
         this.releaseDate = releaseDate;
@@ -10,12 +10,12 @@ $(document).ready(function () {
             get: function () {
                 return `<strong>${name}</strong>`;
             },
-            set: function (name) {
+            set: function (newName) {
                 try {
-                    if (typeof name === "string") {
-                        this.name = name;
+                    if (typeof newName === "string") {
+                        return name = newName;
                     } else {
-                        throw "name must be a string!"
+                        throw new TypeError("name must be a string!");
                     }
                 } catch (error) {
                     console.log(error);
@@ -30,9 +30,9 @@ $(document).ready(function () {
             set: function (release) {
                 try {
                     if (Number.isInteger(release)) {
-                        this.releaseDate = release;
+                        return releaseDate = release;
                     } else {
-                        throw "releaseDate must be an int!"
+                        throw new TypeError("releaseDate must be an int!");
                     }
                 } catch (error) {
                     console.log(error);
@@ -43,12 +43,12 @@ $(document).ready(function () {
             get: function () {
                 return `<em>${platform}</em>`;
             },
-            set: function (platform) {
+            set: function (newPlatform) {
                 try {
-                    if (typeof platform === "string") {
-                        this.platform = platform;
+                    if (typeof newPlatform === "string") {
+                        return platform = newPlatform;
                     } else {
-                        throw "platform must be a string!"
+                        throw new TypeError("platform must be a string!");
                     }
                 } catch (error) {
                     console.log(error);
@@ -60,12 +60,13 @@ $(document).ready(function () {
             get: function () {
                 return `<em>${developer}</em>`;
             },
-            set: function (developer) {
+            set: function (newDeveloper) {
                 try {
-                    if (typeof developer === "string") {
-                        this.developer = developer;
+                    if (typeof newDeveloper === "string") {
+                        return developer = newDeveloper;
                     } else {
-                        throw "developer must be a string!"
+                        throw new TypeError("developer must be a string!");
+
                     }
                 } catch (error) {
                     console.log(error);
@@ -85,7 +86,7 @@ $(document).ready(function () {
     let eldenRing = new Game("Elden Ring", 2022, "PlayStation 4, Project Scarlett, Xbox One, PlayStation 5, Microsoft Windows ", "From Software");
 
 
-    worldOfWarcraft.releaseDate = "sa";
+    worldOfWarcraft.name = "hello";
     console.log(worldOfWarcraft.roll(8));
 
     function makeList(game) {

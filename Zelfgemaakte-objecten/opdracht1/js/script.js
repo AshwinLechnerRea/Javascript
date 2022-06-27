@@ -30,7 +30,16 @@ $(document).ready(function () {
         remmen: function () {
             alert("Auto remt af...");
         },
-
+        actions: [function motorStarten() {
+                alert("Motor start...");
+            },
+            function accelereren() {
+                alert("Vroem vroem...");
+            },
+            function remmen() {
+                alert("Auto remt af...");
+            }
+        ],
     }
     console.log(audi);
 
