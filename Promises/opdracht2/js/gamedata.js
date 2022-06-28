@@ -20,16 +20,21 @@ function getGames() {
 	}, 1000);
 }
 
-let waitForLoad = new Promise(function (resolve, resolve) {
 
-});
 
 function addGames(newGames) {
-	setTimeout(() => {
-		// ... is de spread operator, deze destructureert de meegegeven array zodat ze als losse values toegevoegd worden aan de games array
-		games.push(...newGames);
-	}, 2000);
+	let waitForLoad = new Promise(function (resolve) {
+		setTimeout(() => {
+			// ... is de spread operator, deze destructureert de meegegeven array zodat ze als losse values toegevoegd worden aan de games array
+			games.push(...newGames);
+			resolve();
+		}, 2000);
+	});
+	waitForLoad.then(() => {
+		getGames();
+	});
 }
+
 
 addGames([{
 		title: `Legend of Mana`,
@@ -40,4 +45,3 @@ addGames([{
 		description: `Command a group of warriors as Serenoa, heir of House Wolffort, in a tangled plot where your decisions make all the difference. Key choices you make will bolster one of three convictions—Utility, Morality, Liberty—which together make up Serenoa’s world view and influence how the story will unfold. When faced with truly momentous decisions, multiple characters will weigh in by casting their votes on the Scales of Conviction.`
 	}
 ]);
-getGames();
