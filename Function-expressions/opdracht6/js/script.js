@@ -32,31 +32,28 @@ $(document).ready(function () {
         }]
     };
 
-    let pet = {
-        name: "Odin",
-        favFood: ["wortel", "koekje", "stroomkabel"],
-        showName: function () {
-            alert(this.name); // this.name verwijst naar "Odin" 
-        },
-        eatFoods: function (test = this.name) {
-            // this.name verwijst niet meer naar "Odin"!
-            this.favFood.forEach(function (food) {
-                alert(test + " eet een " + food);
-            });
+    let salaryCombined = 0;
+
+    let minusOne = function (num) {
+        if (num > 0) {
+            console.log(num);
+            minusOne(--num);
+        } else {
+            console.log(num);
         }
-    };
-    pet.eatFoods("Frits");
-    // function totalSalary(obj) {
-    //     let salaryCombined;
-    //     for (let prop in obj) {
-    //         if (typeof obj[prop] === "object") {
-    //             totalSalary(obj[prop]);
-    //         } else if (prop === "salary") {
-    //             return salaryCombined += obj[prop];
-    //         }
-    //     }
-    //     console.log(salaryCombined);
-    // }
-    // let employeeSalary = totalSalary(employees);
-    // console.log(employeeSalary)
+    }
+
+    function totalSalary(obj) {
+        for (let prop in obj) {
+            if (prop === "salary") {
+                return salaryCombined += obj[prop];
+            } else if (typeof obj[prop] === "object") {
+                totalSalary(obj[prop]);
+            }
+        }
+        return salaryCombined;
+    }
+
+    minusOne(10);
+    console.log(totalSalary(employees));
 });
