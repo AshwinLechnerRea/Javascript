@@ -14,12 +14,19 @@ $(document).ready(function () {
     }
     let cc = new Product("Chromecast", 39.99);
     let atv = new Product("Apple TV", 159.99);
+    Product.prototype.inStock = true;
+    atv.inStock = false;
+    Product.prototype.addToCard = function () {
+        if (this.inStock === true) {
+            alert(`U heeft de ${this.name} toegevoegd aan uw winkelwagen!`)
+        } else {
+            alert(`Helaas, de ${this.name} is momenteel niet op voorraad.`)
+        }
+    }
     console.log(cc);
     console.log(atv);
-    cc.name = "Google";
-    cc.price = 40.99;
-    atv.name = "Apple";
-    atv.price = 100.50;
-    console.log(cc);
-    console.log(atv);
+    console.log(cc.inStock);
+    console.log(atv.inStock);
+    cc.addToCard();
+    atv.addToCard();
 });
