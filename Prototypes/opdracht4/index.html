@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/script.js" defer></script>
@@ -14,26 +15,40 @@
 <body>
     <h1>Gebruikers CMS</h1>
     <form action="">
-        <label for="user">Type gebruiker:</label><br>
-        <select name="user" id="user">
-            <option value="customer">Klant</option>
-            <option value="admin">Admin</option>
-        </select><br>
-        <label for="username">Gebruikersnaam:</label><br>
-        <input type="text" name="username" id="username">
-        <div class="admin">
-            <label for="auth">Authenticatieniveau:</label>
-            <input type="text" name="auth" id="auth">
+        <div class="form-default">
+            <label for="user">Type gebruiker:</label><br>
+            <select name="user" id="user">
+                <option value="customer">Klant</option>
+                <option value="admin">Admin</option>
+            </select><br>
+            <label for="username">Gebruikersnaam:</label><br>
+            <input type="text" name="username" id="username">
+            <div class="error" hidden>Gebruikesnaam bestaat al!</div>
         </div>
-        <div class="customer">
-            <label for="name">Voornaam:</label>
-            <input type="text" name="name" id="name">
-            <label for="surname">Achnernaam:</label>
-            <input type="text" name="surname" id="surname">
-            <label for="location">Locatie:</label>
-            <input type="text" name="location" id="location">
-        </div>
-    </form>
+        <input type="submit" name="submit" value="Gebuiker toevoegen">
+    </form><br>
+    <div>
+        admins
+        <table id="admins">
+            <tr>
+                <th>Gebuikersnaam</th>
+                <th>Authenticatieniveau</th>
+            </tr>
+        </table>
+    </div><br>
+
+    <div>
+        Klanten
+        <table id="customers">
+            <tr>
+                <th>Gebuikersnaam</th>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Location</th>
+            </tr>
+        </table>
+    </div>
+
 </body>
 
 </html>
