@@ -13,7 +13,6 @@ $(document).ready(function () {
         await loadImages();
         $("img").reverse().each(function () {
             $(".images").append($(this));
-            console.log("hi");
         })
     }
     loadImages();
@@ -27,7 +26,6 @@ $(document).ready(function () {
         if (timesCalled < 2) {
             loadImages();
             timesCalled++;
-            console.log(timesCalled);
         } else {
             reverseOrder();
         }
