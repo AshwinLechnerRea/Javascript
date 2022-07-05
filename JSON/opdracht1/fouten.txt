@@ -1,0 +1,6 @@
+1. Servlet niet tussen dubbele quotes.
+2. Geen comma achter " "cachePackageTagsTrack": 200 ".
+3. " "init-param": ["  Moet  " "init-param": { " zijn.
+4.  "dataStoreLogFile"; moet een ":" zijn ipv ";"
+5. Lijn 72 mist een ":".
+6. Lijn 86 heeft een "]", deze moet lager geplaatst worden.

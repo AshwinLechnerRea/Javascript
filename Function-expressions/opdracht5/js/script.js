@@ -32,7 +32,7 @@ $(document).ready(function () {
     let dividedByFive = dividebleByFive.map(function (x) {
         return x / 5;
     })
-    //Gevonden op Google, snap alleen ht "-Infinity" gedeelte neit echt
+    //Gevonden op Google, snap alleen het "-Infinity" gedeelte niet echt
     function getHighestValue(array) {
         return array.reduce(function (a, b) {
             return Math.max(a, b);
