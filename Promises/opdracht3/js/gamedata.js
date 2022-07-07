@@ -46,10 +46,14 @@ addGames([{
 	}
 ]).then(() => {
 	getGames()
+}, error => {
+	console.log(error);
 });
 
 
 /* Test met invalide input. */
 addGames("Dit is duidelijk geen array").then(() => {
 	getGames()
+}, error => {
+	console.log(error);
 });
