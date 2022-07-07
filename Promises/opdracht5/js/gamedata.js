@@ -1,3 +1,22 @@
+// async function addGames(newGames) {
+// 	let waitForLoad = new Promise(function (resolve, rejected) {
+// 		setTimeout(() => {
+// 			if (Array.isArray(newGames)) {
+// 				games.push(...newGames);
+// 				resolve();
+// 			} else {
+// 				rejected("Dit is geen geldige input.");
+// 			}
+// 		}, 2000);
+// 	});
+// 	try {
+// 		await waitForLoad;
+// 		await getGames();
+// 	} catch (error) {
+// 		console.error(error);
+// 	}
+// }
+
 const games = [{
 		title: `Animal Crossing: New Horizons`,
 		description: `Escape to a deserted island and create your own paradise as you explore, create, and customize in the Animal Crossing: New Horizons game. Your island getaway has a wealth of natural resources that can be used to craft everything from tools to creature comforts. You can hunt down insects at the crack of dawn, decorate your paradise throughout the day, or enjoy sunset on the beach while fishing in the ocean.`
@@ -9,41 +28,43 @@ const games = [{
 ];
 
 function getGames() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			let output = "<dl>";
-			games.forEach((game, index) => {
-				output += "<dt>" + game.title + "</dt>";
-				output += "<dd>" + game.description + "</dd>";
-			})
-			output += "</dl>";
-			document.querySelector("section").innerHTML = output;
-		}, 1000);
-	});
+	setTimeout(() => {
+		let output = "<dl>";
+		games.forEach((game, index) => {
+			output += "<dt>" + game.title + "</dt>";
+			output += "<dd>" + game.description + "</dd>";
+		})
+		output += "</dl>";
+		document.querySelector("section").innerHTML = output;
+	}, 1000);
 }
 
-async function addGames(newGames) {
-	let waitForLoad = new Promise(function (resolve, rejected) {
+
+
+function addGames(newGames) {
+	return new Promise(function (resolve, rejected) {
 		setTimeout(() => {
 			if (Array.isArray(newGames)) {
 				games.push(...newGames);
-				resolve();
+				resolve()
 			} else {
 				rejected("Dit is geen geldige input.");
 			}
 		}, 2000);
 	});
+}
+async function addAndRead(data) {
 	try {
-		await waitForLoad;
-		await getGames();
+		await addGames(data);
+		getGames();
 	} catch (error) {
 		console.error(error);
 	}
-
 }
 
+
 /* Test met valide input */
-addGames([{
+addAndRead([{
 		title: `Legend of Mana`,
 		description: `Set off on a journey to find the mystical Mana Tree seen in a dream, before discovering... the world map is empty! During your travels, you’ll acquire special artifacts; place these wherever you’d like on the map to bring towns and dungeons to life and advance the story. Meet a colorful cast of characters, square off against fearsome monsters, and complete quests in the vast world of Fa’Diel.`
 	},
@@ -51,8 +72,8 @@ addGames([{
 		title: `Project Triangle Strategy`,
 		description: `Command a group of warriors as Serenoa, heir of House Wolffort, in a tangled plot where your decisions make all the difference. Key choices you make will bolster one of three convictions—Utility, Morality, Liberty—which together make up Serenoa’s world view and influence how the story will unfold. When faced with truly momentous decisions, multiple characters will weigh in by casting their votes on the Scales of Conviction.`
 	}
-]);
+])
 
 
 /* Test met invalide input. */
-addGames("Dit is duidelijk geen array");
+addAndRead("Dit is duidelijk geen array");
