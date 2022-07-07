@@ -22,7 +22,6 @@ $(document).ready(function () {
     let intervalId = setInterval(callback, timeout);
 
     function callback() {
-
         if (timesCalled < 2) {
             loadImages();
             timesCalled++;

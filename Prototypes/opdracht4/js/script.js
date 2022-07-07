@@ -34,12 +34,12 @@ $(document).ready(function () {
             <input type="text" name="lastName" id="lastName"><br>
             <label for="location">Locatie:</label><br>
             <input type="text" name="location" id="location">
-        </div><br>`;
+        </div>`;
     const adminForm = `       
          <div class="admin">
             <label for="auth">Authenticatieniveau:</label><br>
             <input type="text" name="auth" id="auth">
-        </div><br>`
+        </div>`
     $("#user").change(function () {
         if ($(this).val() === "customer") {
             $(".admin").remove();
