@@ -17,7 +17,7 @@ $(document).ready(function () {
     }
     loadImages();
 
-    let timeout = 3000;
+    let timeout = 30000;
     let timesCalled = 0;
     let intervalId = setInterval(callback, timeout);
 
@@ -29,9 +29,24 @@ $(document).ready(function () {
             reverseOrder();
         }
         clearInterval(intervalId);
-        if (timeout < 9000) {
+        if (timeout < 90000) {
             timeout += 1000;
         }
         intervalId = setInterval(callback, timeout);
     }
+
+    // function loadImages() {
+    //     fetch("imagecrawler.php")
+    //         .then(response => response.text())
+    //         .then(data => {
+    //             $(".images").html(data);
+    //         })
+    //         .catch(error => {
+    //             console.error("Niet gelukt.");
+    //         });
+    // }
+    // loadImages();
+    // setInterval(() => {
+    //     loadImages();
+    // }, 30000);
 });

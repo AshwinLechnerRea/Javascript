@@ -13,5 +13,4 @@ $(document).ready(function () {
     setInterval(() => {
         loadImages();
     }, 30000);
-
 });
