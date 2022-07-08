@@ -1,0 +1,10 @@
+#container {
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100vh;
+}
+
+.block {
+    min-height: 100%;
+}
