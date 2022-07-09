@@ -4,8 +4,8 @@
         },
         "product_name": "JURA D4 Piano Black",
         "supplier": "JURA",
-        "quantity": 261,
-        "unit_cost": "$749,-",
+        "quantity": 251,
+        "unit_cost": 749,
         "image": "images/jura-d4.webp"
     }, {
         "_id": {
@@ -14,7 +14,7 @@
         "product_name": "De'Longhi Dinamica ECAM350.55.B ",
         "supplier": "De'Longhi",
         "quantity": 0,
-        "unit_cost": "$599,99",
+        "unit_cost": 599,
         "image": "images/delongi-dinamica.avif"
     }, {
         "_id": {
@@ -22,8 +22,8 @@
         },
         "product_name": "Siemens EQ.700 Integral TQ705R03",
         "supplier": "Siemens",
-        "quantity": 211,
-        "unit_cost": "$1274,-",
+        "quantity": 311,
+        "unit_cost": 1274,
         "image": "images/siemens-eq-700.avif"
     }, {
         "_id": {
@@ -32,7 +32,7 @@
         "product_name": "Sage Barista Express Stainless Steel",
         "supplier": "Sage",
         "quantity": 0,
-        "unit_cost": "$579,55",
+        "unit_cost": 579,
         "image": "images/sage-barista.avif"
     }, {
         "_id": {
@@ -40,8 +40,8 @@
         },
         "product_name": "Philips 4300 EP4349/70",
         "supplier": "Philips",
-        "quantity": 292,
-        "unit_cost": "$529,99",
+        "quantity": 122,
+        "unit_cost": 529,
         "image": "images/philips-4300.avif"
     }, {
         "_id": {
@@ -49,8 +49,8 @@
         },
         "product_name": "Sage the Oracle Touch Stainless Steel",
         "supplier": "Sage",
-        "quantity": 211,
-        "unit_cost": "$2264,-",
+        "quantity": 401,
+        "unit_cost": 2264,
         "image": "images/sage-the-oracle.avif"
     },
     {
@@ -59,8 +59,8 @@
         },
         "product_name": "JURA E8 Moonlight Silver (EB)",
         "supplier": "JURA",
-        "quantity": 261,
-        "unit_cost": "$1299,10",
+        "quantity": 127,
+        "unit_cost": 1299,
         "image": "images/jura-e8.avif"
     }, {
         "_id": {
@@ -69,7 +69,7 @@
         "product_name": "Philips 2200 EP2224/10",
         "supplier": "Philips",
         "quantity": 292,
-        "unit_cost": "$285",
+        "unit_cost": 285,
         "image": "images/Philips-2200.avif"
     }
 ]

@@ -6,13 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     <title>Opdracht 4</title>
 </head>
-<div id="container"></div>
+
+
 
 <body>
-
+    <label for="order">Sorteer op:</label>
+    <select name="order" id="order">
+        <option value="alpha">alfabetisch</option>
+        <option value="price-asc">prijs (laag naar hoog)</option>
+        <option value="quantity-desc">voorraad (hoog naar laag).</option>
+    </select>
+    <div id="container"></div>
 </body>
 
 </html>
