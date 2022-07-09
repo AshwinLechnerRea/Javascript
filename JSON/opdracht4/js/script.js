@@ -55,7 +55,7 @@ async function createHTML(prop, order) {
                     <h4>${product.product_name}</h4>
                     <p>${product.supplier}</p>
                     <p>Aantal beschikbaar: ${product.quantity}</p>
-                    <p>Prijs: ${product.unit_cost}</p>`;
+                    <p>Prijs: €${product.unit_cost},-</p>`;
         article.innerHTML = html;
         document.querySelector("#container").appendChild(article);
     }
