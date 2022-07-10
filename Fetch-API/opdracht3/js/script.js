@@ -9,8 +9,8 @@ $(document).ready(function () {
         return $(".images").html(data);
     }
 
-    async function reverseOrder() {
-        await loadImages();
+    async function reverseOrder(toReverse) {
+        await toReverse;
         $("img").reverse().each(function () {
             $(".images").append($(this));
         })
@@ -26,7 +26,7 @@ $(document).ready(function () {
             loadImages();
             timesCalled++;
         } else {
-            reverseOrder();
+            reverseOrder(loadImages());
         }
         clearInterval(intervalId);
         if (timeout < 90000) {
